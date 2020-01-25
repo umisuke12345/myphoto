@@ -1,15 +1,81 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Myphoto</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>サンプルブログ</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="#"><i class="fab fa-bitcoin fa-border"></i> Navbar</a>
 
-  <body>
-    <%= yield %>
-  </body>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item active mr-sm-2"><a class="nav-link" href="#"><i class="fas fa-user-circle fa-lg"></i></a></li>
+        <li class="nav-item mr-sm-2"><a class="nav-link" href="#"><i class="far fa-comment-alt fa-lg"></i></a></li>
+        <li class="nav-item mr-sm-2"><%= link_to 'ログイン/アカウント作成 ', root_path, class: 'nav-link btn btn-sm btn-outline-secondary' %></li>
+      </ul>
+
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+    </form>
+  </div>
+</nav>
+
+<header>
+  <div class="container">
+    <h1><%= link_to 'サンプルブログ', root_path %></h1>
+  </div>
+</header>
+
+<div class="container margin40">
+  <div class="row">
+    <div class="col-sm-10">
+      <% if notice %>
+        <div id="notice" class="alert alert-success" role="alert">
+          <%= notice %>
+        </div>
+      <% end %>
+
+      <%= yield %>
+
+    </div>
+    <div class="col-sm-2">
+      <div class="marginBottom20">
+        <%= link_to '新規投稿', new_post_path, class: 'btn btn-block btn-sm btn-primary' %>
+      </div>
+
+      サイドバー的な。
+    </div>
+  </div>
+</div>
+
+<footer class="text-center">
+  <div class="container">
+    &copy; 2018 サンプルブログ
+  </div>
+</footer>
+
+</body>
 </html>

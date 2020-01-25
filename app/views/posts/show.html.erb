@@ -1,45 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="mainWrap card">
+  <h1>
+    <%= @post.title %>
+  </h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @post.name %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
-
-<h2>コメント</h2>
-<% @post.comments.each do |comment| %>
+  <div>
+    <%= simple_format(@post.content) %>
+  </div>
   <p>
-    <%= comment.commenter %>: <%= comment.body %>
-    <%= link_to '削除', [comment.post, comment],
-               :confirm => 'よろしいですか？',
-               :method => :delete %>
-
+    <%= @post.name %>
   </p>
-<% end %>
 
-<h2>コメントを書く</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <div class="field">
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
-  </div>
-  <div class="field">
-    <%= f.label :body %><br />
-    <%= f.text_area :body %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+
+  <%= link_to 'Edit', edit_post_path(@post) %> | <%= link_to 'Back', posts_path %>
+
+
+  <h3><i class="far fa-comments"></i> コメント</h3>
+  <% @post.comments.each do |comment| %>
+    <div>
+      <%= simple_format( comment.body ) %>
+      <%= comment.commenter %>
+      <%= link_to '削除', [comment.post, comment],
+                  :confirm => 'よろしいですか？',
+                  :method => :delete %>
+
+    </div>
+  <% end %>
+
+  <h3>コメントを書く</h3>
+  <%= form_for([@post, @post.comments.build]) do |f| %>
+
+      <!--<%= f.label :body %>-->
+      <%= f.text_area :body, placeholder: 'コメントを入力してください' , class:'form-control marginBottom10' %>
+
+      <!--<%= f.label :commenter %>-->
+      <%= f.text_field :commenter, placeholder: 'お名前', class:'form-control marginBottom10' %>
+
+      <%= f.submit 'コメントする', class:'btn btn-block btn-success' %>
+  <% end %>
+
+</div>
