@@ -6,4 +6,5 @@ validates :title, presence: true, length: { minimum: 3, message: '短すぎま�
 validates :content, presence: true, length: { minimum: 3, message: '短すぎます!'}
 
 has_many :comments
+mount_uploader :img, ImgUploader
 end
