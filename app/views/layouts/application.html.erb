@@ -13,7 +13,11 @@
   <% if user_signed_in? %>
           <div class="user_nav grid-6">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <a class="post" href="/posts/new">投稿する</a>
+            <div class="col-sm-2">
+              <div class="marginBottom20">
+                <%= link_to '新規投稿', new_post_path, class: 'btn btn-block btn-sm btn-primary' %>
+              </div>
+            </div>
           </div>
 
         <% else %>
@@ -25,7 +29,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-  <a class="navbar-brand" href="#"><i class="fas fa-photo-video"></i> MyPhoto</a>
+  <a class="navbar-brand" href="#"><i class="fas fa-camera-retro"></i> MyPhoto</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -67,11 +71,7 @@
       <%= yield %>
 
     </div>
-    <div class="col-sm-2">
-      <div class="marginBottom20">
-        <%= link_to '新規投稿', new_post_path, class: 'btn btn-block btn-sm btn-primary' %>
-      </div>
-    </div>
+    
   </div>
 </div>
 
