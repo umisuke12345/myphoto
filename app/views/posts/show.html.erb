@@ -1,4 +1,8 @@
 <div class="mainWrap card">
+  <p>
+    <%= image_tag @post.img.url if @post.img? %>
+  </p>
+
   <h1>
     <%= @post.title %>
   </h1>
@@ -8,10 +12,6 @@
   </div>
   <p>
     <%= @post.name %>
-  </p>
-
-  <p>
-    <%= image_tag @post.img.url if @post.img? %>
   </p>
 
   <%= link_to '編集', edit_post_path(@post) %>
