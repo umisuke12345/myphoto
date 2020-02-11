@@ -1,6 +1,6 @@
-MyPhoto
-簡単なブログアプリ
-画像投稿、コメントができる
+# MyPhoto
+* 簡単なブログアプリ
+* 画像投稿、コメントができる
  
 # DEMO
  
@@ -11,8 +11,8 @@ MyPhoto
 
  
 # Requirement
- ruby 2.5.1
- Rails 5.2.4
+* ruby 2.5.1
+* Rails 5.2.4
 
  
 
