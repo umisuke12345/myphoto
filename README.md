@@ -1,24 +1,35 @@
-# README
+MyPhoto
+簡単なブログアプリ
+画像投稿、コメントができる
+ 
+# DEMO
+ 
+[![Image from Gyazo](https://i.gyazo.com/711a7068bd299063250547df7b02948f.jpg)](https://gyazo.com/711a7068bd299063250547df7b02948f)
+ 
+# Features
+ 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ 
+# Requirement
+ ruby 2.5.1
+ Rails 5.2.4
 
-Things you may want to cover:
+ 
 
-* Ruby version
+ 
+# Installation
+ 
 
-* System dependencies
+ 
+# Usage
+ 
 
-* Configuration
+ 
+# Note
+ 
+ 
+# Author
+ 
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ 
+# License
