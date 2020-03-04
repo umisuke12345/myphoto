@@ -1,36 +1,36 @@
-<div class="mainWrap card">
-  <p>
-    <%= image_tag @post.img.url if @post.img? %>
-  </p>
+<div class="mainShow">
 
   <h1>
     <%= @post.title %>
   </h1>
 
-  <div>
-    <%= simple_format(@post.content) %>
-  </div>
+  <h2>
+    <%= image_tag @post.img.url if @post.img? %>
+  </h2>
+
   <p>
-    <%= @post.name %>
+    <%= simple_format(@post.content) %>
+  
+    <i class="fas fa-user"></i> <%= @post.name %>
   </p>
 
-  <%= link_to '編集', edit_post_path(@post) %>
-  <%= link_to '戻る', posts_path %>
 
+  <h3>
+    <i class="far fa-comments"></i> 
+    コメント
+  </h3>
 
-  <h3><i class="far fa-comments"></i> コメント</h3>
   <% @post.comments.each do |comment| %>
     <div>
       <%= simple_format( comment.body ) %>
-      <%= comment.commenter %>
+      <i class="fas fa-user"></i><%= comment.commenter %>
       <%= link_to '削除', [comment.post, comment],
                   :confirm => 'よろしいですか？',
                   :method => :delete %>
-
     </div>
   <% end %>
 
-  <h3>コメントを書く</h3>
+  <h4>コメントを書く</h4>
   <%= form_for([@post, @post.comments.build]) do |f| %>
 
       <!--<%= f.label :body %>-->
@@ -41,5 +41,8 @@
 
       <%= f.submit 'コメントする', class:'btn btn-block btn-success' %>
   <% end %>
+
+  <%= link_to '編集', edit_post_path(@post) %>
+  <%= link_to 'TOPに戻る', posts_path %>
 
 </div>
